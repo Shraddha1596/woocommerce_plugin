@@ -81,6 +81,7 @@ function excellence_submenu() {
 }
 function excellence_submenu_callback() {
     echo '<h3>Excellence Fee Addition</h3>';
+     include "admin/admin_input.php";
 }
 add_action('admin_menu', 'excellence_submenu',99);
 
