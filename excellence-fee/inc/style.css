@@ -1,0 +1,14 @@
+.input-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.form_label{
+	width: 100%;
+    margin-bottom: 20px;
+}
+.input_fee, .input_check {
+    width: 100%;
+}
+.input_check, .submit_fee_div{
+	margin-top: 10px;
+}
