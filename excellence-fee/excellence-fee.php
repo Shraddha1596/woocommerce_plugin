@@ -12,14 +12,11 @@ Version: 1
 Author URI: http://wordpress.org/plugins/
 */
 
-/**
- * Check if WooCommerce is active
- **/
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-
 function plugin_activation() {
-  
+    
+    /*  Check if WooCommerce is active*/
 	if (!is_plugin_active('woocommerce/woocommerce.php') )
     {
         deactivate_plugins(plugin_basename(__FILE__));
@@ -29,6 +26,7 @@ function plugin_activation() {
         }
 
     }
+    include('excellence-functions.php');
 
 }
 add_action( 'init', 'plugin_activation' );
@@ -72,42 +70,3 @@ function excellence_fee_admininc() {
     wp_enqueue_script( 'excellence_custom_js', plugins_url( 'excellence-fee/inc/script.js', dirname(__FILE__)));
 }
 add_action( 'admin_enqueue_scripts', 'excellence_fee_admininc' );
-
-function excellence_submenu() {
-    add_submenu_page( 'woocommerce', 'Excellence Fee', 'Excellence Fee', 'manage_options', 'excellence-fee', 'excellence_submenu_callback' ); 
-}
-
-//admin options
-function excellence_submenu_callback() {
-    echo '<h3>Excellence Fee Addition</h3>';
-    include "admin/admin_input.php";
-}
-add_action('admin_menu', 'excellence_submenu',99);
-
-
-
-//show and add fee on cart page
-function woo_add_cart_fee() {
- 
-    include "fee_cart/cart.php";
-    
-}
-add_action( 'woocommerce_cart_calculate_fees', 'woo_add_cart_fee' );
-
-
-//add excellence fee option in admin woocommerce > order table
-
-function sv_wc_cogs_add_order_profit_column_header( $columns ) {
-
-    include "order_admin/admin_table.php";
-    return $new_columns;
-}
-add_filter( 'manage_edit-shop_order_columns', 'sv_wc_cogs_add_order_profit_column_header', 20 );
-
-
-function sv_wc_cogs_add_order_profit_column_content( $column ) {
-
-    include "order_admin/admin_table_value.php";
-
-}
-add_action( 'manage_shop_order_posts_custom_column', 'sv_wc_cogs_add_order_profit_column_content' );
