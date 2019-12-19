@@ -1,0 +1,34 @@
+.input-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.form_label{
+	width: 100%;
+    margin-bottom: 20px;
+}
+.input_fee, .input_check {
+    width: 100%;
+}
+.input_check, .submit_fee_div{
+	margin-top: 10px;
+}
+.save_status{
+	color: #00b300;
+}
+.save_status.save_status_after{
+	-webkit-animation: cssAnimation 2s forwards; 
+    animation: cssAnimation 2s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+.input_fee, .input_fee_label {
+    width: auto;
+}
