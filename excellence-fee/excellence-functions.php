@@ -2,13 +2,9 @@
 
 global $wpdb;
 
-$current_value = $wpdb->get_results('select * from ' . $wpdb->prefix . 'posts where  post_name="excellence_fee"');
+$current_value = get_page_by_title('Excellence Fee', OBJECT, 'post');
+$checkbox_status=$current_value -> post_status;
 
-foreach ($current_value as $key => $value) {
-	$current_value=$value -> post_content;
-	$checkbox_status=$value -> post_status;
-	
-}
 if($checkbox_status == "true"){
 	add_action( 'woocommerce_cart_calculate_fees', 'woo_add_cart_fee' );
 }
@@ -19,7 +15,9 @@ function excellence_submenu() {
 
 //admin options
 function excellence_submenu_callback() {
+
     include "admin/admin_input.php";
+
 }
 add_action('admin_menu', 'excellence_submenu',99);
 

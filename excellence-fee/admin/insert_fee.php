@@ -1,10 +1,12 @@
 <?php
-require_once('../../../../wp-load.php');
+
+$parse_uri = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
+require_once( $parse_uri[0] . 'wp-load.php' );
 
 global $wpdb;
 
 
-if(isset($_REQUEST['fee_value'])){
+if(isset($_POST['fee_value'])){
 	$fee=$_POST['fee_value'];
 	$fee_stat=$_POST['fee_status'];
 	
@@ -17,15 +19,16 @@ if(isset($_REQUEST['fee_value'])){
 	  	'post_name' => _( 'excellence_fee'),
 	);
 
-	 $existing_data = $wpdb->get_results('select * from ' . $wpdb->prefix . 'posts where  post_name="excellence_fee"');
+	
+	 $existing_data = get_page_by_title('Excellence Fee', OBJECT, 'post');
+   
 	
 	if ( ! empty( $existing_data ) ) {
 	
-	    foreach ($existing_data as $key => $value) {
-	    	$existing_value=$value -> post_content;
-	    	$existing_value_id=$value -> ID;
-	    
-	    }
+		$existing_value= $existing_data -> post_content;
+		$existing_value_id=$existing_data -> ID;
+
+	   
 	    $my_post_update = array(
 		      'ID'           => $existing_value_id,
 		      'post_content' => $fee,
@@ -39,13 +42,13 @@ if(isset($_REQUEST['fee_value'])){
 
 	    	$message= $update_status->get_error_message();
 	    	_e(  $message );
-		    // return  $message ;
+		  
 		}
 		else {
-			$message='Excellence Fee updated successfully to: '.$fee;
+			$message='Excellence Fee updated successfully';
 
 		    _e(  $message );
-		    // return  $message ;
+		  
 		}
 
 	}else{

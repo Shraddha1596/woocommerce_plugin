@@ -12,3 +12,20 @@
 .input_check, .submit_fee_div{
 	margin-top: 10px;
 }
+.save_status{
+	color: #00b300;
+}
+.save_status.save_status_after{
+	-webkit-animation: cssAnimation 2s forwards; 
+    animation: cssAnimation 2s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}

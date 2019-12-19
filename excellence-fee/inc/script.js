@@ -19,6 +19,8 @@
 					
 					success: function(response){
 						$('.save_status').text(response);
+						$('.save_status').addClass('save_status_after');
+						
 					}
 				});
 			}
