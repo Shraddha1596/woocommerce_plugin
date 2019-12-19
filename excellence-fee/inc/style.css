@@ -29,3 +29,6 @@
     90%  {opacity: 1;}
     100% {opacity: 0;}
 }
+.input_fee, .input_fee_label {
+    width: auto;
+}

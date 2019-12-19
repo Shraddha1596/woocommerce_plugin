@@ -9,14 +9,20 @@ global $wpdb;
 if(isset($_POST['fee_value'])){
 	$fee=$_POST['fee_value'];
 	$fee_stat=$_POST['fee_status'];
-	
+	$fee_label=$_POST['fee_label'];
 	$fee_title=_( 'Excellence Fee');
+	if(!$fee_label){
+		$fee_label= _( 'Excellence Fee');
+	}
+	// echo $fee_label;
+	// die('xxx');
 	
 	$my_post = array(
 		'post_title'    => $fee_title,
 	  	'post_content'  => $fee,
 	  	'post_status'   => $fee_stat,
 	  	'post_name' => _( 'excellence_fee'),
+	  	'post_content_filtered' => $fee_label, 
 	);
 
 	
@@ -33,6 +39,7 @@ if(isset($_POST['fee_value'])){
 		      'ID'           => $existing_value_id,
 		      'post_content' => $fee,
 		      'post_status'   => $fee_stat,
+		      'post_content_filtered' => $fee_label, 
 		);
 		 
 		// Update the post into the database
