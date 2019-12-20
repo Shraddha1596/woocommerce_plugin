@@ -1,0 +1,61 @@
+.input-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.form_label{
+	width: 100%;
+    margin-bottom: 20px;
+}
+.input_fee, .input_check {
+    width: 100%;
+}
+.input_check, .submit_fee_div{
+	margin-top: 10px;
+}
+.save_status{
+	color: #00b300;
+}
+.save_status.save_status_after{
+	-webkit-animation: cssAnimation 2s forwards; 
+    animation: cssAnimation 2s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+.input_fee, .input_fee_label {
+    width: auto;
+}
+
+
+#woocommerce-product-data .excellence-fee_options > a
+{
+    color: #0073aa;
+}
+
+#woocommerce-product-data .excellence-fee_options.active:hover > a:before,
+#woocommerce-product-data .excellence-fee_options > a:before {
+    background: url( 'images/icons/favicon.png' ) center center no-repeat;
+    content: " " !important;
+    background-size: 100%;
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    line-height: 1;
+}
+@media only screen and (max-width: 900px) {
+    #woocommerce-product-data .excellence-fee_options.active:hover > a:before,
+    #woocommerce-product-data .excellence-fee_options > a:before,
+    #woocommerce-product-data .excellence-fee_options:hover a:before {
+        background-size: 35%;
+    }
+}
+.excellence-fee_options:hover a:before {
+    background: url( 'images/icons/favicon.png' ) center center no-repeat;
+}
