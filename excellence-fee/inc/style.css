@@ -32,3 +32,30 @@
 .input_fee, .input_fee_label {
     width: auto;
 }
+
+
+#woocommerce-product-data .excellence-fee_options > a
+{
+    color: #0073aa;
+}
+
+#woocommerce-product-data .excellence-fee_options.active:hover > a:before,
+#woocommerce-product-data .excellence-fee_options > a:before {
+    background: url( 'images/icons/favicon.png' ) center center no-repeat;
+    content: " " !important;
+    background-size: 100%;
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    line-height: 1;
+}
+@media only screen and (max-width: 900px) {
+    #woocommerce-product-data .excellence-fee_options.active:hover > a:before,
+    #woocommerce-product-data .excellence-fee_options > a:before,
+    #woocommerce-product-data .excellence-fee_options:hover a:before {
+        background-size: 35%;
+    }
+}
+.excellence-fee_options:hover a:before {
+    background: url( 'images/icons/favicon.png' ) center center no-repeat;
+}

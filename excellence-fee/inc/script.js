@@ -1,6 +1,7 @@
 	$(document).ready(function(){
 		var frm = $('.fee_form');
 		frm.submit(function(event){
+			$('.save_status').removeClass('save_status_after');
 			var fee_input;
 			var fee_status;
 			fee_input=$('.excel_fee').val();

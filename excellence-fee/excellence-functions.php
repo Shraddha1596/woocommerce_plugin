@@ -39,3 +39,28 @@ function sv_wc_cogs_add_order_profit_column_content( $column ) {
 
 }
 add_action( 'manage_shop_order_posts_custom_column', 'sv_wc_cogs_add_order_profit_column_content' );
+
+
+/**
+ * Add a custom product tab.
+ */
+function excel_product_tab( $tabs) {
+
+	include "product_settings/product_option.php";
+	return $tabs;
+}
+add_filter( 'woocommerce_product_data_tabs', 'excel_product_tab' );
+
+function excel_product_tab_content() {
+
+	include "product_settings/setting_content.php";
+	
+}
+add_action( 'woocommerce_product_data_panels', 'excel_product_tab_content' );
+
+function excel_product_tab_save( $post_id ) {
+	include "product_settings/setting_content_save.php";
+   
+}
+add_action( 'woocommerce_process_product_meta_simple', 'excel_product_tab_save' );
+add_action( 'woocommerce_process_product_meta_variable', 'excel_product_tab_save' );
